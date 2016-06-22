@@ -55,19 +55,18 @@ static void TIM_Configuration(void)
 void ENCODE_Init(void)	
 {
 	
-		 /******************************TIM3 CHI1 CHI2---PB4 PB5********************************/
+		 /******************************TIM3 CHI1 CHI2---PA6 PA7********************************/
 	
 	  TIM_ICInitTypeDef TIM_ICInitStructure;
 	  TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
 	  GPIO_InitTypeDef GPIO_InitStructure;
 	
-    GPIO_PinRemapConfig(GPIO_PartialRemap_TIM3,ENABLE);
-
+  //  GPIO_PinRemapConfig(GPIO_PartialRemap_TIM3,ENABLE);
 
 	  GPIO_StructInit(&GPIO_InitStructure);
-		GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4 | GPIO_Pin_5;
+		GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7;
 		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
-		GPIO_Init(GPIOB, &GPIO_InitStructure);
+		GPIO_Init(GPIOA, &GPIO_InitStructure);
 	
   	TIM_DeInit(TIM3);
   	TIM_TimeBaseStructInit(&TIM_TimeBaseStructure);	
