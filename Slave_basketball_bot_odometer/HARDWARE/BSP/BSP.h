@@ -7,8 +7,8 @@
 #include "string.h"	 
 #include <stdarg.h>
 #include "stm32f10x_tim.h"
-#define MAX_COUNT  400
-#define TIM_PERIOD 1000
+#define MAX_COUNT  700    //下发速度0.6时 电机最大转速 506//0.8电机最大转速 689
+#define TIM_PERIOD 1500   // TIM_PERIOD>2*MAX_COUNT
 
 
 #define MYID  0X03
