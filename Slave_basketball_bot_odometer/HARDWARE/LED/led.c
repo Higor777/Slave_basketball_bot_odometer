@@ -210,7 +210,7 @@ void my_encoder_analysis(void)
   }
   if(my_encoder2.count<- encoder_data2)
   {
-  	my_encoder2.count=0;
+  	  my_encoder2.count=0;
  	  my_encoder2.rcount--;	  	
   }
 	
@@ -222,57 +222,53 @@ void my_encoder_analysis(void)
   }
   if(my_encoder3.count<- encoder_data3)
   {
-  	my_encoder3.count=0;
- 	  my_encoder3.rcount--;	  	
-  }
+  	   my_encoder3.count=0;
+ 	   my_encoder3.rcount--;	  	
+  } 
 }
+
+
 
 void encoder_analysis(void)
 {
 /*******************************************编码器1************************************/
-	  my_encoder_analysis();
+	my_encoder_analysis();
 	
-	  my_encoder1.mesure_unit_encoder = my_encoder1.rcount * encoder_data1 + my_encoder1.count;
-	  my_encoder1.rcount=0;
-	  //my_encoder1.count=0;
-
-		my_encoder1.past_encoder += my_encoder1.mesure_unit_encoder;                 //已经走过的编码计数		有正负
-		my_encoder1.past_length = (my_encoder1.past_encoder/encoder_data1)*360;     // 已经走过的总里程 //can返回值   角度   弧度制
-		my_encoder1.mesure_anglev  = my_encoder1.mesure_unit_encoder * PID_hz * 360 / encoder_data1 ;            //测量的速度   单位化
-		
-	  my_encoder1.mesure_total_encoder += my_encoder1.mesure_unit_encoder ;      //测定的总编码器计数  定时清0
-    my_encoder1.encoder_totalt_difference = 	my_encoder1.expect_total_encoder -  my_encoder1.mesure_total_encoder ;  //差值	
-		
-		my_encoder1.encoder_unit_difference = my_encoder1.expect_unit_encoder - my_encoder1.mesure_unit_encoder;
+    my_encoder1.mesure_unit_encoder = my_encoder1.rcount * encoder_data1 + my_encoder1.count;
+	my_encoder1.rcount=0;
+	my_encoder1.count=0;
+   
+	my_encoder1.past_encoder += my_encoder1.mesure_unit_encoder;                 //已经走过的编码计数		有正负
+	my_encoder1.past_length = (my_encoder1.past_encoder/encoder_data1)*360;     // 已经走过的总里程 //can返回值   角度   弧度制
+/* 	my_encoder1.mesure_anglev  = my_encoder1.mesure_unit_encoder * PID_hz * 360 / encoder_data1 ;            //测量的速度   单位化
+	my_encoder1.mesure_total_encoder += my_encoder1.mesure_unit_encoder ;      //测定的总编码器计数  定时清0
+	my_encoder1.encoder_totalt_difference = 	my_encoder1.expect_total_encoder -  my_encoder1.mesure_total_encoder ;  //差值	
+	my_encoder1.encoder_unit_difference = my_encoder1.expect_unit_encoder - my_encoder1.mesure_unit_encoder; */
 		
 /***********************************编码器2****************************************/
-	  my_encoder2.mesure_unit_encoder = my_encoder2.rcount * encoder_data2 + my_encoder2.count;
-	  my_encoder2.rcount=0;
-	  //my_encoder2.count=0;
-
-		my_encoder2.past_encoder += my_encoder2.mesure_unit_encoder;                 //已经走过的编码计数		有正负
-		my_encoder2.past_length = (my_encoder2.past_encoder/encoder_data2)*360;                              // 已经走过的总里程
-		my_encoder2.mesure_anglev  = my_encoder2.mesure_unit_encoder * PID_hz * 360 / encoder_data2 ;            //测量的速度   单位化
-		
-	  my_encoder2.mesure_total_encoder += my_encoder2.mesure_unit_encoder ;      //测定的总编码器计数  定时清0
+	my_encoder2.mesure_unit_encoder = my_encoder2.rcount * encoder_data2 + my_encoder2.count;
+	my_encoder2.rcount=0;
+	my_encoder2.count=0;
+  
+	my_encoder2.past_encoder += my_encoder2.mesure_unit_encoder;                 //已经走过的编码计数		有正负
+	my_encoder2.past_length = (my_encoder2.past_encoder/encoder_data2)*360;                              // 已经走过的总里程
+/* 	my_encoder2.mesure_anglev  = my_encoder2.mesure_unit_encoder * PID_hz * 360 / encoder_data2 ;            //测量的速度   单位化
+	my_encoder2.mesure_total_encoder += my_encoder2.mesure_unit_encoder ;      //测定的总编码器计数  定时清0
     my_encoder2.encoder_totalt_difference = 	my_encoder2.expect_total_encoder -  my_encoder2.mesure_total_encoder ;  //差值	
-		
-		my_encoder2.encoder_unit_difference = my_encoder2.expect_unit_encoder - my_encoder2.mesure_unit_encoder;
-		
+    my_encoder2.encoder_unit_difference = my_encoder2.expect_unit_encoder - my_encoder2.mesure_unit_encoder;
+		 */
 /*****************************************编码器3******************************************************/
-	  my_encoder3.mesure_unit_encoder = my_encoder3.rcount * encoder_data3 + my_encoder3.count;
-	  my_encoder3.rcount=0;
-	  //my_encoder3.count=0;
+	my_encoder3.mesure_unit_encoder = my_encoder3.rcount * encoder_data3 + my_encoder3.count;
+	my_encoder3.rcount=0;
+	my_encoder3.count=0;
 	
-		my_encoder3.past_encoder += my_encoder3.mesure_unit_encoder;                 //已经走过的编码计数		有正负
-		my_encoder3.past_length = (my_encoder3.past_encoder/encoder_data3)*360;                              // 已经走过的总里程
-		my_encoder3.mesure_anglev  = my_encoder3.mesure_unit_encoder * PID_hz * 360 / encoder_data3 ;            //测量的速度   单位化
-		
-	  my_encoder3.mesure_total_encoder += my_encoder3.mesure_unit_encoder ;      //测定的总编码器计数  定时清0
-    my_encoder3.encoder_totalt_difference = 	my_encoder3.expect_total_encoder -  my_encoder3.mesure_total_encoder ;  //差值	
-		
-		my_encoder3.encoder_unit_difference = my_encoder3.expect_unit_encoder - my_encoder3.mesure_unit_encoder;
-}
+	my_encoder3.past_encoder += my_encoder3.mesure_unit_encoder;                 //已经走过的编码计数		有正负
+	my_encoder3.past_length = (my_encoder3.past_encoder/encoder_data3)*360;                              // 已经走过的总里程
+/* 		my_encoder3.mesure_anglev  = my_encoder3.mesure_unit_encoder * PID_hz * 360 / encoder_data3 ;            //测量的速度   单位化
+	    my_encoder3.mesure_total_encoder += my_encoder3.mesure_unit_encoder ;      //测定的总编码器计数  定时清0
+        my_encoder3.encoder_totalt_difference = 	my_encoder3.expect_total_encoder -  my_encoder3.mesure_total_encoder ;  //差值	
+		my_encoder3.encoder_unit_difference = my_encoder3.expect_unit_encoder - my_encoder3.mesure_unit_encoder; */
+		}
 
 
 /*********************************************************************10ms 中断产生一次
